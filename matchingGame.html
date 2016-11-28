@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Maching game </title>
+    <style>
+      h1 {
+        display: block;
+        text-align: center;
+      }
+      
+      #leftSide, #rightSide {
+        width: 600px;
+        height: 500px;
+        background: yellow;
+      }
+      
+      #leftSide {
+        position: absolute;
+        left: 60px;
+      }
+      
+      #rightSide {
+        position: absolute;
+        left: 650px;
+        border-left: 10px solid red;
+      }
+      
+      img {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+      }
+
+    </style>
+
+  </head>
+
+  <body onload="generateFaces()" id="body">
+	<h1> maching game </h1>
+	<div style="position:relative; left:50px">
+		<p> Click on the extra image on the left </br><p>
+	</div><br>
+   
+    
+
+        <div id="leftSide"> </div>
+        <div id="rightSide"> </div>
+
+        <script>
+          var numberOfFaces = 5;
+          var score = 0;
+          var theLeftSide = document.getElementById("leftSide");
+          var theRightSide = document.getElementById("rightSide");
+          var theBody = document.getElementsByTagName("body")[0];
+
+          function generateFaces() {
+            for (var i = 0; i < numberOfFaces; i++) {
+              var img = document.createElement('img');
+              var theleftSideImages = theLeftSide.appendChild(img);
+              var x_position = Math.floor(Math.random() * 500);
+              var y_position = Math.floor(Math.random() * 400);
+              img.src = "images/football.png";
+              img.style.left = x_position + "px";
+              img.style.top = y_position + "px";
+
+            }
+
+            LeftSideImages = theLeftSide.cloneNode(true);
+            LeftSideImages.removeChild(LeftSideImages.lastChild);
+            rightSideImages = theRightSide.appendChild(LeftSideImages);
+            theLeftSide.lastChild.onclick = nextLevel;
+          };
+
+          theBody.onclick = function gameOver() {
+
+            alert("Game over \n your score is " + score );
+            theBody.onclick = null;
+            theLeftSide.lastChild.onclick = null;
+			
+			
+          };
+
+
+          function nextLevel(event) {
+            while (theLeftSide.firstChild) {
+              theLeftSide.removeChild(theLeftSide.lastChild);
+            }
+            while (theRightSide.firstChild) {
+              theRightSide.removeChild(theRightSide.lastChild);
+            }
+            event.stopPropagation();
+            numberOfFaces += 5;
+            generateFaces();
+			score += 10;
+			
+
+          };
+
+        </script>
+  </body>
+
+</html>
