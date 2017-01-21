@@ -1,0 +1,56 @@
+     body {
+      /*margin: 10px;*/
+     }
+      h1 {
+        display: block;
+        text-align: center;
+      }
+      #instructions {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        color: green;
+        font-weight: bold;
+      }
+      #scoreSpan {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        color: red;
+        font-weight: bold;
+      }
+      #leftSide, #rightSide {
+        width: 50%;
+        height: 80%;
+        background: yellow;
+      }
+      
+      #leftSide {
+        position: absolute;
+        left: 0;
+      }
+      
+      #rightSide {
+        position: absolute;
+        left: 50%;
+        border-left: 1px solid red;
+      }
+      
+      img {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+      }
+
+      #gameOver {
+        position: absolute;
+        background-color: lightgreen;
+        padding: 10px;
+        display: none;
+        width: 100%;
+        text-align: center;
+      }
+      #gameOver > button {
+        background-color: white;
+        color: red;
+      }
