@@ -12,7 +12,7 @@ function generateFaces() {
     var theleftSideImages = theLeftSide.appendChild(img);
     var x_position = Math.floor(Math.random() * parseInt(window.getComputedStyle(theLeftSide,null).getPropertyValue("width"))*.8);
     var y_position = Math.floor(Math.random() * parseInt(window.getComputedStyle(theLeftSide,null).getPropertyValue("height"))*.9);
-    console.log(x_position + ' ' + y_position)
+    
     img.src = "images/football.png";
     img.style.left = x_position + "px";
     img.style.top = y_position + "px";
@@ -27,9 +27,9 @@ function generateFaces() {
 
 // game over
 theBody.onclick = function gameOver() {
-  document.getElementById('finalScore').innetHTML += score;
   var gameOver =document.getElementById('gameOver')
   gameOver.style.display = 'block';
+  document.getElementById('finalScore').innerHTML += score;
   theBody.onclick = null;
   theLeftSide.lastChild.onclick = null;
 };
