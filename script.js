@@ -66,6 +66,6 @@ function nextLevel(event) {
   generateFaces();
   score += 10;
 
- document.getElementById('score').innerHTML = score;
+ document.getElementById('scoreSpan').innerHTML += score;
 };
 
