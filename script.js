@@ -1,5 +1,5 @@
 
-var numberOfFaces = 5;
+var numberOfFaces = 2;
 var score = 0;
 var theLeftSide = document.getElementById("leftSide");
 var theRightSide = document.getElementById("rightSide");
@@ -7,28 +7,35 @@ var theBody = document.getElementsByTagName("body")[0];
 
 //generate faces
 function generateFaces() {
+	// loop for the number of faces times
   for (var i = 0; i < numberOfFaces; i++) {
+	  
     var img = document.createElement('img');
-    var theleftSideImages = theLeftSide.appendChild(img);
     var x_position = Math.floor(Math.random() * parseInt(window.getComputedStyle(theLeftSide,null).getPropertyValue("width"))*.8);
     var y_position = Math.floor(Math.random() * parseInt(window.getComputedStyle(theLeftSide,null).getPropertyValue("height"))*.9);
-    
+    // image src and position
     img.src = "images/football.png";
     img.style.left = x_position + "px";
     img.style.top = y_position + "px";
-
+	// appending the images to the leftside.
+	theLeftSide.appendChild(img);
   }
-  LeftSideImages = theLeftSide.cloneNode(true);
-  LeftSideImages.removeChild(LeftSideImages.lastChild);
-  rightSideImages = theRightSide.appendChild(LeftSideImages);
-  theLeftSide.lastChild.onclick = nextLevel;
+  // clone images from the left side to the right side
+  theLeftSideImagesClone = theLeftSide.cloneNode(true);
+  // removing last image from the left side before cloning to the right side
+  theLeftSideImagesClone.removeChild(theLeftSideImagesClone.lastChild);
+  // cloning remaining images to the right side
+  rightSideImages = theRightSide.appendChild(theLeftSideImagesClone);
   
+  // loop through the leftside images:
   theLeftSide.childNodes.forEach(function(elem){
+	// if you clicked a wrong image call function gameOver
 	if(elem !=theLeftSide.lastChild){
 		elem.onclick = gameOver;
-	console.log(elem) 
-  }
+	}
   })
+  // if you clicked the right image call function nextLevel
+  theLeftSide.lastChild.onclick = nextLevel;
  
 };
 
@@ -55,7 +62,7 @@ function nextLevel(event) {
     theRightSide.removeChild(theRightSide.lastChild);
   }
   event.stopPropagation();
-  numberOfFaces += 5;
+  numberOfFaces += 2;
   generateFaces();
   score += 10;
 
