@@ -1,14 +1,14 @@
 
-var numberOfFaces = 2;
+var numberOfImages = 2;
 var score = 0;
 var theLeftSide = document.getElementById("leftSide");
 var theRightSide = document.getElementById("rightSide");
 var theBody = document.getElementsByTagName("body")[0];
 
 //generate faces
-function generateFaces() {
+function generateImages() {
 	// loop for the number of faces times
-  for (var i = 0; i < numberOfFaces; i++) {
+  for (var i = 0; i < numberOfImages; i++) {
 	  
     var img = document.createElement('img');
     var x_position = Math.floor(Math.random() * parseInt(window.getComputedStyle(theLeftSide,null).getPropertyValue("width"))*.8);
@@ -62,8 +62,8 @@ function nextLevel(event) {
     theRightSide.removeChild(theRightSide.lastChild);
   }
   event.stopPropagation();
-  numberOfFaces += 2;
-  generateFaces();
+  numberOfImages += 2;
+  generateImages();
   score += 10;
 
  document.getElementById('score').innerHTML = score;
