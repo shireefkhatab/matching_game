@@ -5,7 +5,7 @@ h1 {
 }
 #info {
 	margin-bottom: 30px;
-	//position: relative;
+	/* position: relative; */
 }	
 #instructions {
 	position: absolute;
@@ -24,7 +24,7 @@ h1 {
 #leftSide, #rightSide {
 	width: 50%;
 	height: 80%;
-	background: lightyellow;
+	background: yellow;
 }
 
 #leftSide {
