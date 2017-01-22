@@ -18,17 +18,24 @@ function generateFaces() {
     img.style.top = y_position + "px";
 
   }
-
   LeftSideImages = theLeftSide.cloneNode(true);
   LeftSideImages.removeChild(LeftSideImages.lastChild);
   rightSideImages = theRightSide.appendChild(LeftSideImages);
   theLeftSide.lastChild.onclick = nextLevel;
+  
+  theLeftSide.childNodes.forEach(function(elem){
+	if(elem !=theLeftSide.lastChild){
+		elem.onclick = gameOver;
+	console.log(elem) 
+  }
+  })
+ 
 };
 
 // game over
-theBody.onclick = function gameOver() {
-  var gameOver =document.getElementById('gameOver')
-  gameOver.style.display = 'block';
+function gameOver() {
+  var replay = document.getElementById('gameOver')
+  replay.style.display = 'block';
   document.getElementById('finalScore').innerHTML += score;
   theBody.onclick = null;
   theLeftSide.lastChild.onclick = null;
