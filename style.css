@@ -41,9 +41,9 @@ img {
 	height: 50px;
 }
 
-#gameOver {
+#gameOver, #start {
 	position: absolute;
-	background-color: greenyellow;
+	background-color: olive;
 	padding: 10px;
 	display: none;
 	width: 100%;
@@ -51,7 +51,12 @@ img {
 	text-align: center;
 	left: 0;
 }
-#gameOver > button {
+#start {
+	display: block;
+	background: greenyellow;
+	z-index: 9999;
+}
+#gameOver > #reload, #start > #startGame {
 	background-color: white;
 	font-weight: bold;
 	padding: 20px;

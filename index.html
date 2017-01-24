@@ -7,7 +7,7 @@
 
   </head>
 
-  <body onload="generateImages()" id="body">
+  <body id="body">
     
     <h1> Matching game </h1>
     
@@ -16,7 +16,12 @@
 		<span id="scoreSpan"> Score: </span>
 		<span id="score"></span>
 	</div>
-     
+
+	<div id="start">
+		<h2> Start the game  </h2>
+
+		<button id="startGame"> Play!</button>
+	</div>
 
 	<div id="leftSide"> </div>
 	<div id="rightSide"> </div>
@@ -24,11 +29,11 @@
 	<div id="gameOver">
 		<h2> Game Over </h2>
 		<h3 id="finalScore"> Your Score: </h3>
-		<button onClick="reload()"> Play Again!</button>
+		<button id="reload"> Play Again!</button>
 	</div>
 
 
-      <script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 
   </body>
 
